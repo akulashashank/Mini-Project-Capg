@@ -1,0 +1,60 @@
+﻿@model Online_Banking.Models.Account_Master_174797_Project
+
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="/Home/Home" class="navbar-brand">  <img src="~/Images/logo_bank.png" alt="Company logo" width="120" height="60" /></a>
+                @Html.ActionLink("Delta Bank", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" });
+                @*<ul class="nav navbar-nav">
+                    <li align:Right>@Html.ActionLink("Home", "Index", "Home")</li>
+                </ul>*@
+                <div class="navbar-collapse collapse">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<body style="background-image: url('../../Images/logo_bank.png' );
+background-repeat: no-repeat; background-size: cover;  background-color: deepskyblue; margin:0">
+    <img src="~/Images/loginbackground.jpg" alt="Company logo" width="1100" height="200" />
+</body>
+<h3 style="color:green">Welcome to Delta Bank</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Login Failed, check details");
+    <div class="ibLoginHead inside-login">
+        <fieldset>
+            <legend>Login Form</legend>
+            <div class="editor-label">@Html.LabelFor(u => u.Email)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Email)
+                @Html.ValidationMessageFor(u => u.Email)
+            </div>
+            <div class="editor-label">@Html.LabelFor(u => u.PassWord)</div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.PassWord)
+                @Html.ValidationMessageFor(u => u.PassWord)
+            </div>
+            <input type="submit" value="LogIn" class="btn btn-primary" />
+            <a href="~/Registration/ForgotPassword">Forgot Password</a><br /><br />
+
+            <a href="~/Registration/Register">Sign Up</a>
+
+        </fieldset>
+</div>
+}
+   
+

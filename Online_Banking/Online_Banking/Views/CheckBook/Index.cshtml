@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Online_Banking.Models.Check_174797_Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Home" class="navbar-brand">  <img src="~/Images/logo_bank.png" alt="Company logo" width="120" height="60" /></a>
+                @Html.ActionLink("Delta Bank", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" });
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "Index", "Registration")</li>
+                    <li>@Html.ActionLink("Customer care", "Contact", "Home")</li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li align:Right>@Html.ActionLink("Logout", "LogOut", "Registration")</li>
+            </ul>
+            <div class="navbar-collapse collapse">
+
+            </div>
+        </div>
+        </div>
+   
+</body>
+
+<h2>Check Book Index</h2>
+<body id="billpayimage" style="background-image: url('../../Images/logo_bank.png' );
+background-repeat: no-repeat; background-size: cover;  background-color: deepskyblue; margin:0">
+</body>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Check_ID)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Account_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account_Master_174797_Project.Account_Type)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Check_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phoneno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account_Master_174797_Project.Account_Type)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Check_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Check_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Check_ID })
+            </td>
+        </tr>
+    }
+
+</table>

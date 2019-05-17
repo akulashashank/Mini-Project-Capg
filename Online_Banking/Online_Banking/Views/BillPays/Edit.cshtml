@@ -1,0 +1,106 @@
+﻿@model Online_Banking.Models.BillPay
+
+@{
+    ViewBag.Title = "Edit";
+}
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-header" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Home" class="navbar-brand">  <img src="~/Images/logo_bank.png" alt="Company logo" width="120" height="60" /></a>
+                @Html.ActionLink("Delta Bank", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" });
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "Index", "Registration")</li>
+                    <li>@Html.ActionLink("Customer care", "Contact", "Home")</li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li align:Right>@Html.ActionLink("Logout", "LogOut", "Registration")</li>
+            </ul>
+            <div class="navbar-collapse collapse">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<h2>Edit</h2>
+<body style="background-image: url('../../Images/Billpay.jpg' );
+background-repeat: no-repeat; background-size: cover;  background-color: deepskyblue; margin:0">
+</body>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>BillPay</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.BillPayID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Account_No, "Account_No", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Account_No", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Account_No, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PayeeID, "PayeeID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PayeeID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PayeeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ScheduleDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ScheduleDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ScheduleDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Period, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Period, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Period, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ModifyDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.TextBox("txtFrmDate", DateTime.Today.ToString("yyyy/MM/dd"), new { @class = "textinput" })*@
+                 @Html.EditorFor(model => model.ModifyDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ModifyDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

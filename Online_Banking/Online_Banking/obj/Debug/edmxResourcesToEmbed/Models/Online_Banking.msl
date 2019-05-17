@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Training_20Feb_MumbaiModelStoreContainer" CdmEntityContainer="Training_20Feb_MumbaiEntities2">
+    <EntitySetMapping Name="Account_Master_174797_Project">
+      <EntityTypeMapping TypeName="Training_20Feb_MumbaiModel.Account_Master_174797_Project">
+        <MappingFragment StoreEntitySet="Account_Master_174797_Project">
+          <ScalarProperty Name="Account_No" ColumnName="Account_No" />
+          <ScalarProperty Name="Account_Type" ColumnName="Account_Type" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Opening_Date" ColumnName="Opening_Date" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="HouseAddress" ColumnName="HouseAddress" />
+          <ScalarProperty Name="Pancard_no" ColumnName="Pancard_no" />
+          <ScalarProperty Name="AccountaccessMode" ColumnName="AccountaccessMode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Loan_174797_Project">
+      <EntityTypeMapping TypeName="Training_20Feb_MumbaiModel.Loan_174797_Project">
+        <MappingFragment StoreEntitySet="Loan_174797_Project">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LoanID" ColumnName="LoanID" />
+          <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+          <ScalarProperty Name="TypeofLoan" ColumnName="TypeofLoan" />
+          <ScalarProperty Name="Loanammount" ColumnName="Loanammount" />
+          <ScalarProperty Name="DurationofLoan" ColumnName="DurationofLoan" />
+          <ScalarProperty Name="EMI" ColumnName="EMI" />
+          <ScalarProperty Name="Applicationstatus" ColumnName="Applicationstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions_174797_Project">
+      <EntityTypeMapping TypeName="Training_20Feb_MumbaiModel.Transactions_174797_Project">
+        <MappingFragment StoreEntitySet="Transactions_174797_Project">
+          <ScalarProperty Name="Transaction_ID" ColumnName="Transaction_ID" />
+          <ScalarProperty Name="DateofTransaction" ColumnName="DateofTransaction" />
+          <ScalarProperty Name="TypeofTransaction" ColumnName="TypeofTransaction" />
+          <ScalarProperty Name="Account_No" ColumnName="Account_No" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillPays">
+      <EntityTypeMapping TypeName="Training_20Feb_MumbaiModel.BillPay">
+        <MappingFragment StoreEntitySet="BillPay">
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="Period" ColumnName="Period" />
+          <ScalarProperty Name="ScheduleDate" ColumnName="ScheduleDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PayeeID" ColumnName="PayeeID" />
+          <ScalarProperty Name="Account_No" ColumnName="Account_No" />
+          <ScalarProperty Name="BillPayID" ColumnName="BillPayID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payees">
+      <EntityTypeMapping TypeName="Training_20Feb_MumbaiModel.Payee">
+        <MappingFragment StoreEntitySet="Payee">
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PayeeName" ColumnName="PayeeName" />
+          <ScalarProperty Name="PayeeID" ColumnName="PayeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Check_174797_Project">
+      <EntityTypeMapping TypeName="Training_20Feb_MumbaiModel.Check_174797_Project">
+        <MappingFragment StoreEntitySet="Check_174797_Project">
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phoneno" ColumnName="phoneno" />
+          <ScalarProperty Name="Account_no" ColumnName="Account_no" />
+          <ScalarProperty Name="Check_ID" ColumnName="Check_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

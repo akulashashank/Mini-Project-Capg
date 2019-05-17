@@ -1,0 +1,25 @@
+﻿#legend {
+    color:burlywood;
+    display: block;
+    padding-left: 2px;
+    padding-right: 2px;
+    border: none;
+}
+#p1{
+    color: azure;
+    font-family: courier;
+    font-size: 160%;
+}
+#billpayimage {
+    background-image: url(Images/Billpay.jpg);
+    background-size: cover; /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center; /* optional, center the image */
+}
+#BODYREGISTER {
+    background-image: url(Images/onlineB.jpg);
+    background-size: cover; /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center; /* optional, center the image */
+    margin:auto
+}

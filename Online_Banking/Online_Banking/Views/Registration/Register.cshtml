@@ -1,0 +1,160 @@
+﻿@model Online_Banking.Models.Account_Master_174797_Project
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Css/StyleSheet1.css" rel="stylesheet" />
+<body >
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div style="color:yellowgreen" class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Home" class="navbar-brand">  <img src="~/Images/logo_bank.png" alt="Company logo" width="120" height="60" /></a>
+                @Html.ActionLink("Delta Bank", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" });
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+                    <li>@Html.ActionLink("About", "Index", "Registration")</li>
+                    <li>@Html.ActionLink("Customer care", "Contact", "Home")</li>
+                </ul>
+                </div>
+                @*<ul class="nav navbar-nav navbar-right">
+                    <li align:Right>@Html.ActionLink("Logout", "LogOut", "Registration")</li>
+                </ul>*@
+                <div class="navbar-collapse collapse">
+
+                </div>
+            </div>
+        </div>
+  
+</body>
+
+
+<body id="BODYREGISTER" style="background-image: url('../../Images/homebackground.jpg');
+background-repeat: no-repeat; background-size: cover; background-color: deepskyblue; margin-right:  auto">
+</body>
+
+
+<h1 style="color:green;">Register Here</h1>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Registeration Failed, fields.");
+    <div>
+        <fieldset>
+            <legend id="legend" style="color:darkblue">Register Form</legend>
+
+            <div class="editor-label" style="color:darkblue">@Html.LabelFor(u => u.Account_No)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Account_No)
+                @Html.ValidationMessageFor(u => u.Account_No)
+            </div>
+            @using Online_Banking.Models
+            @*@model Account_Master_174797_Project*@
+
+            <div style="color:darkblue">
+                <label> Select Account Type</label>
+                <select id="Account_Type" name="Account_Type">
+                    <option>Saving</option>
+                    <option>Current</option>
+                </select>
+            </div>
+            @*<div class="editor-label" style="color:blanchedalmond">@Html.LabelFor(u => u.Account_Type)</div>
+        <div class="editor-field">
+            @Html.TextBoxFor(u => u.Account_Type)
+            @Html.ValidationMessageFor(u => u.Account_Type)
+        </div>*@
+            @*<p id="p1" style="color:azure">*Account type must be as Saving or Current</p>*@
+
+            @*<div class="editor-label">@Html.LabelFor(u => u.Account_Type)</div>
+        <div class="editor-field">
+            @Html.DropDownListFor(u => u.Account_Type, new SelectList(Enum.GetValues(typeof(Account_Master_174797_Project.type))), "Select Account Type")
+            @Html.ValidationMessageFor(u => u.Account_Type)
+        </div>*@
+
+            <div class="editor-label" style="color:darkblue">@Html.LabelFor(u => u.Username)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Username)
+                @Html.ValidationMessageFor(u => u.Username)
+            </div>
+
+            <div class="editor-label" style="color:darkblue">@Html.LabelFor(u => u.Email)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Email)
+                @Html.ValidationMessageFor(u => u.Email)
+            </div>
+
+            <div class="editor-label" style="color:darkblue">@Html.LabelFor(u => u.PassWord)</div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.PassWord)
+                @Html.ValidationMessageFor(u => u.PassWord)
+            </div>
+
+            @*<div class="editor-label" style="color:blanchedalmond">@Html.LabelFor(u => u.Balance)</div>
+        <div class="editor-field">
+            @Html.TextBoxFor(u => u.Balance)
+            @Html.ValidationMessageFor(u => u.Balance)
+        </div>*@
+
+
+            <div class="editor-label" style="color:darkblue">@Html.LabelFor(u => u.Opening_Date)</div>
+            <div class="editor-field">
+                @*@Html.TextBox("txtFrmDate", DateTime.Today.ToString("yyyy/MM/dd"), new { @class = "textinput" })*@
+                @Html.TextBoxFor(u => u.Opening_Date)
+                @Html.ValidationMessageFor(u => u.Opening_Date)
+            </div>
+
+
+
+            @*<div>
+            <input type="date" id="last-start-date" value="@string.Format("{0:yyyy-MM-dd}", Model.Opening_Date)" />
+            @Html.TextBoxFor(u => u.Opening_Date, new { type = "date" })
+        </div>*@
+
+
+            <div class="editor-label" style="color:darkblue">@Html.LabelFor(u => u.HouseAddress)</div>
+            <div class="editor-field">
+                @Html.TextAreaFor(u => u.HouseAddress)
+                @Html.ValidationMessageFor(u => u.HouseAddress)
+            </div>
+
+            <div class="editor-label" style="color:darkblue">@Html.LabelFor(u => u.Pancard_no)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.Pancard_no)
+                @Html.ValidationMessageFor(u => u.Pancard_no)
+            </div>
+
+
+            <div style="color:darkblue">
+                <label> Select Account access Mode</label>
+                <select id="AccountaccessMode" name="AccountaccessMode">
+                    <option>Single</option>
+                    <option>Joint</option>
+                    <option>Either</option>
+                    <option>Servivor</option>
+                </select>
+            </div>
+            @*<div class="editor-label" style="color:blanchedalmond">@Html.LabelFor(u => u.AccountaccessMode)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.AccountaccessMode)
+                @Html.ValidationMessageFor(u => u.AccountaccessMode)
+            </div>
+            <p id="p1" style="color:azure">*Account Access Mode can be only Single, Joint, Either, Servivor</p>*@
+
+
+            @*<div class="editor-label">@Html.LabelFor(u => u.AccountaccessMode)</div>
+        <div class="editor-field">
+            @Html.DropDownListFor(u => u.AccountaccessMode, new SelectList(Enum.GetValues(typeof(Account_Master_174797_Project.mode))), "Select Account Type")
+            @Html.ValidationMessageFor(u => u.AccountaccessMode)
+        </div>*@
+
+
+            <input type="submit" value="Register" class="btn btn-primary" />
+            <a href="~/Registration/LogIn">LogIn</a>
+
+        </fieldset>
+    </div>
+}

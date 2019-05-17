@@ -1,0 +1,146 @@
+﻿@model Online_Banking.Models.Loan_174797_Project
+
+@{
+    ViewBag.Title = "Loan";
+}
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Home" class="navbar-brand">  <img src="~/Images/logo_bank.png" alt="Company logo" width="120" height="60" /></a>
+                @Html.ActionLink("Delta Bank", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" });
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "Index", "Registration")</li>
+              
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Customer care", "Contact", "Home")</li>
+                <li align:Right>@Html.ActionLink("Logout", "LogOut", "Registration")</li>
+            </ul>
+            <div class="navbar-collapse collapse">
+
+            </div>
+        </div>
+        </div>
+  
+</body>
+<body id="billpayimage" style="background-image: url('../../Images/logo_bank.png' );
+background-repeat: no-repeat; background-size: cover;  background-color: deepskyblue; margin:0">
+</body>
+<h2>Loan</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Loans</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div>
+        <label> Account Number</label>
+        <input type="number" id="AccountID" name="AccountID" />
+    </div>
+    <div>
+        <label> Email</label>
+        <input type="email" id="Email" name="Email" />
+    </div>
+    <div>
+        <div>
+
+            <p>EMI costs Education 0.12, Personal 0.8, Car 0.5,Home 0.4</p>
+            <label> Select Loan Type</label>
+            <select id="TypeofLoan" name="TypeofLoan">
+                <option>Education</option>
+                <option>Personal</option>
+                <option>Car</option>
+                <option>Home</option>
+
+            </select>
+        </div>
+        <div>
+            <label>Loan Amount</label>
+            <input type="number" id="Loanammount" name="Loanammount" />
+        </div>
+        <div>
+            <label> Duration of Loan</label>
+            <input type="number" id="DurationofLoan" onchange="CalculateEmi()" name="DurationofLoan" />
+        </div>
+        <div>
+            <label>EMI of Your Loan :</label>
+            <label id="EMI" name="EMI" />
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Confirm" id="btnSuccess" class="btn btn-success" style="display:none" />
+                        </td>
+                        <td>
+                            <input type="reset" value="Cancel" id="btnreset" class="btn btn-danger" style="display:none" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <table>
+        <tr>
+            <td>
+                @Html.ActionLink("Back to List", "Index")
+            </td>
+            <td>
+                <a href="~/Home/Index">Back</a>
+            </td>
+        </tr>
+    </table>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script type="text/javascript">
+            function CalculateEmi() {
+                var selectval = document.getElementById("TypeofLoan").value;
+                var Amountval = document.getElementById("Loanammount").value;
+                var Durationval = document.getElementById("DurationofLoan").value;
+                alert(selectval);
+                if (selectval == "Education") {
+                    amt = 0.12
+                }
+                else if (selectval == "Personal") {
+                    amt = 0.8;
+                }
+                else if (selectval == "Car") {
+                    amt = 0.5;
+                }
+                else {
+                    amt = 0.4;
+                }
+                if (selectval != null && Amountval != null && Durationval != null) {
+
+                    document.getElementById("EMI").innerText = +(Amountval * amt) / Durationval;
+                    document.getElementById("btnSuccess").style.display = "block";
+                    document.getElementById("btnreset").style.display = "block";
+                }
+            }
+        </script>
+    }
+
+
+
+}

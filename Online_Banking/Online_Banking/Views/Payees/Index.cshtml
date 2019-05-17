@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Online_Banking.Models.Payee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-header" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Home" class="navbar-brand">  <img src="~/Images/logo_bank.png" alt="Company logo" width="120" height="60" /></a>
+                @Html.ActionLink("Delta Bank", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" });
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "Index", "Registration")</li>
+              
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Customer care", "Contact", "Home")</li>
+                <li align:Right>@Html.ActionLink("Logout", "LogOut", "Registration")</li>
+            </ul>
+            <div class="navbar-collapse collapse">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<h2>Index</h2>
+<body id="billpayimage" style="background-image: url('../../Images/logo_bank.png' );
+background-repeat: no-repeat; background-size: cover;  background-color: deepskyblue; margin:0">
+</body>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PayeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifyDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PayeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifyDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PayeeID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PayeeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PayeeID })
+            </td>
+        </tr>
+    }
+
+</table>

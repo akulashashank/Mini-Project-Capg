@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "Index", "Registration")</li>
+                
+                    </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Customer care", "Contact", "Home")</li>
+                    <li> @Html.ActionLink("Register", "Register", "Registration")</li>
+                    <li>@Html.ActionLink("LogIn", "Login", "Registration")</li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+   @*<nav>
+        <aside>
+            <div style="width:auto; background-color:aqua">
+                @if (Request.IsAuthenticated)
+                {
+                    <strong>@Html.Encode(User.Identity.Name)</strong>
+                    @Html.ActionLink("LogOut", "Logout", "Registration")
+                }
+                else
+                {
+                    @Html.ActionLink("Register", "Register", "Registration")
+                    <span> | </span>
+                    @Html.ActionLink("LogIn", "Login", "Registration")
+                }
+            </div>
+        </aside>
+    </nav>*@
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - All copy rights recived for Online Banking System for BOD</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

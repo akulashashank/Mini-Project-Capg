@@ -1,0 +1,88 @@
+﻿@model Online_Banking.Models.Check_174797_Project
+
+@{
+    ViewBag.Title = "Details";
+}
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Home" class="navbar-brand">  <img src="~/Images/logo_bank.png" alt="Company logo" width="120" height="60" /></a>
+                @Html.ActionLink("Delta Bank", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" });
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "Index", "Registration")</li>
+                    <li>@Html.ActionLink("Customer care", "Contact", "Home")</li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li align:Right>@Html.ActionLink("Logout", "LogOut", "Registration")</li>
+            </ul>
+            <div class="navbar-collapse collapse">
+
+            </div>
+        </div>
+        </div>
+ 
+</body>
+
+<h2>Chech Book Details</h2>
+<body id="billpayimage" style="background-image: url('../../Images/logo_bank.png' );
+background-repeat: no-repeat; background-size: cover;  background-color: deepskyblue; margin:0">
+</body>
+
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Check_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Check_ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Account_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phoneno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phoneno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account_Master_174797_Project.Account_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account_Master_174797_Project.Account_Type)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Check_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

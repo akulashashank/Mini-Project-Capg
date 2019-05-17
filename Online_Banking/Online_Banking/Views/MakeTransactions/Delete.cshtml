@@ -1,0 +1,83 @@
+﻿@model Online_Banking.Models.Transactions_174797_Project
+
+@{
+    ViewBag.Title = "Delete";
+}
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-header" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Home" class="navbar-brand">  <img src="~/Images/logo_bank.png" alt="Company logo" width="120" height="60" /></a>
+                @Html.ActionLink("Delta Bank", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" });
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "Index", "Registration")</li>
+               
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Customer care", "Contact", "Home")</li>
+                <li align:Right>@Html.ActionLink("Logout", "LogOut", "Registration")</li>
+            </ul>
+            <div class="navbar-collapse collapse">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Transactions_174797_Project</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateofTransaction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateofTransaction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeofTransaction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeofTransaction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Account_Master_174797_Project.Account_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account_Master_174797_Project.Account_Type)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

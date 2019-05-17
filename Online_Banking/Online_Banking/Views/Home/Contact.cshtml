@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+@*<h3>@ViewBag.Message</h3>*@
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-header" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Home" class="navbar-brand">  <img src="~/Images/logo_bank.png" alt="Company logo" width="120" height="60" /></a>
+                @Html.ActionLink("Delta Bank", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" });
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "Index", "Registration")</li>
+                    <li>@Html.ActionLink("Customer care", "Contact", "Home")</li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li align:Right>@Html.ActionLink("Logout", "LogOut", "Registration")</li>
+            </ul>
+            <div class="navbar-collapse collapse">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+<img src="~/Images/contactimage.jpg" alt="Company logo" width="1100" height="200" />
+<address>
+    Delta Bank<br />
+    sector 20 Airoli Mumbai <br />
+    <abbr title="Phone">Phone:</abbr>
+    879xxxx344,8787xxx678
+    Email: deltabank@dbank.com
+</address>
+

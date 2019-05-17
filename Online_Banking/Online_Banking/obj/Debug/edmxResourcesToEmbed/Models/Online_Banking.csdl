@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Training_20Feb_MumbaiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account_Master_174797_Project">
+    <Key>
+      <PropertyRef Name="Account_No" />
+    </Key>
+    <Property Name="Account_No" Type="Int64" Nullable="false" />
+    <Property Name="Account_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Balance" Type="Double" />
+    <Property Name="Opening_Date" Type="DateTime" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HouseAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Pancard_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AccountaccessMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Loan_174797_Project" Relationship="Self.FK__Loan_1747__Accou__218D7ED9" FromRole="Account_Master_174797_Project" ToRole="Loan_174797_Project" />
+    <NavigationProperty Name="Transactions_174797_Project" Relationship="Self.FK__Transacti__Accou__1EB1122E" FromRole="Account_Master_174797_Project" ToRole="Transactions_174797_Project" />
+    <NavigationProperty Name="BillPays" Relationship="Training_20Feb_MumbaiModel.FK__BillPay__Account__1E31EF41" FromRole="Account_Master_174797_Project" ToRole="BillPay" />
+    <NavigationProperty Name="Check_174797_Project" Relationship="Training_20Feb_MumbaiModel.FK__Check_174__Accou__01EAB64E" FromRole="Account_Master_174797_Project" ToRole="Check_174797_Project" />
+  </EntityType>
+  <EntityType Name="Loan_174797_Project">
+    <Key>
+      <PropertyRef Name="LoanID" />
+    </Key>
+    <Property Name="LoanID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountID" Type="Int64" />
+    <Property Name="TypeofLoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Loanammount" Type="Int64" />
+    <Property Name="DurationofLoan" Type="Double" />
+    <Property Name="EMI" Type="Double" />
+    <Property Name="Applicationstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Account_Master_174797_Project" Relationship="Self.FK__Loan_1747__Accou__218D7ED9" FromRole="Loan_174797_Project" ToRole="Account_Master_174797_Project" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Transactions_174797_Project">
+    <Key>
+      <PropertyRef Name="Transaction_ID" />
+    </Key>
+    <Property Name="Transaction_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateofTransaction" Type="DateTime" Precision="0" />
+    <Property Name="TypeofTransaction" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account_No" Type="Int64" />
+    <Property Name="Amount" Type="Int32" />
+    <NavigationProperty Name="Account_Master_174797_Project" Relationship="Self.FK__Transacti__Accou__1EB1122E" FromRole="Transactions_174797_Project" ToRole="Account_Master_174797_Project" />
+  </EntityType>
+  <Association Name="FK__Loan_1747__Accou__218D7ED9">
+    <End Role="Account_Master_174797_Project" Type="Self.Account_Master_174797_Project" Multiplicity="0..1" />
+    <End Role="Loan_174797_Project" Type="Self.Loan_174797_Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account_Master_174797_Project">
+        <PropertyRef Name="Account_No" />
+      </Principal>
+      <Dependent Role="Loan_174797_Project">
+        <PropertyRef Name="AccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacti__Accou__1EB1122E">
+    <End Role="Account_Master_174797_Project" Type="Self.Account_Master_174797_Project" Multiplicity="0..1" />
+    <End Role="Transactions_174797_Project" Type="Self.Transactions_174797_Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account_Master_174797_Project">
+        <PropertyRef Name="Account_No" />
+      </Principal>
+      <Dependent Role="Transactions_174797_Project">
+        <PropertyRef Name="Account_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Training_20Feb_MumbaiEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Account_Master_174797_Project" EntityType="Self.Account_Master_174797_Project" />
+    <EntitySet Name="Loan_174797_Project" EntityType="Self.Loan_174797_Project" />
+    <EntitySet Name="Transactions_174797_Project" EntityType="Self.Transactions_174797_Project" />
+    <AssociationSet Name="FK__Loan_1747__Accou__218D7ED9" Association="Self.FK__Loan_1747__Accou__218D7ED9">
+      <End Role="Account_Master_174797_Project" EntitySet="Account_Master_174797_Project" />
+      <End Role="Loan_174797_Project" EntitySet="Loan_174797_Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacti__Accou__1EB1122E" Association="Self.FK__Transacti__Accou__1EB1122E">
+      <End Role="Account_Master_174797_Project" EntitySet="Account_Master_174797_Project" />
+      <End Role="Transactions_174797_Project" EntitySet="Transactions_174797_Project" />
+    </AssociationSet>
+    <EntitySet Name="BillPays" EntityType="Training_20Feb_MumbaiModel.BillPay" />
+    <AssociationSet Name="FK__BillPay__Account__1E31EF41" Association="Training_20Feb_MumbaiModel.FK__BillPay__Account__1E31EF41">
+      <End Role="Account_Master_174797_Project" EntitySet="Account_Master_174797_Project" />
+      <End Role="BillPay" EntitySet="BillPays" />
+    </AssociationSet>
+    <EntitySet Name="Payees" EntityType="Training_20Feb_MumbaiModel.Payee" />
+    <AssociationSet Name="FK_BillPay_Payee" Association="Training_20Feb_MumbaiModel.FK_BillPay_Payee">
+      <End Role="Payee" EntitySet="Payees" />
+      <End Role="BillPay" EntitySet="BillPays" />
+    </AssociationSet>
+    <EntitySet Name="Check_174797_Project" EntityType="Training_20Feb_MumbaiModel.Check_174797_Project" />
+    <AssociationSet Name="FK__Check_174__Accou__01EAB64E" Association="Training_20Feb_MumbaiModel.FK__Check_174__Accou__01EAB64E">
+      <End Role="Account_Master_174797_Project" EntitySet="Account_Master_174797_Project" />
+      <End Role="Check_174797_Project" EntitySet="Check_174797_Project" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BillPay">
+    <Key>
+      <PropertyRef Name="BillPayID" />
+    </Key>
+    <Property Name="BillPayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Account_No" Type="Int64" Nullable="false" />
+    <Property Name="PayeeID" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="ScheduleDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Period" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Account_Master_174797_Project" Relationship="Training_20Feb_MumbaiModel.FK__BillPay__Account__1E31EF41" FromRole="BillPay" ToRole="Account_Master_174797_Project" />
+    <NavigationProperty Name="Payee" Relationship="Training_20Feb_MumbaiModel.FK_BillPay_Payee" FromRole="BillPay" ToRole="Payee" />
+  </EntityType>
+  <Association Name="FK__BillPay__Account__1E31EF41">
+    <End Type="Training_20Feb_MumbaiModel.Account_Master_174797_Project" Role="Account_Master_174797_Project" Multiplicity="1" />
+    <End Type="Training_20Feb_MumbaiModel.BillPay" Role="BillPay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account_Master_174797_Project">
+        <PropertyRef Name="Account_No" />
+      </Principal>
+      <Dependent Role="BillPay">
+        <PropertyRef Name="Account_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Payee">
+    <Key>
+      <PropertyRef Name="PayeeID" />
+    </Key>
+    <Property Name="PayeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PayeeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PostCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="BillPays" Relationship="Training_20Feb_MumbaiModel.FK_BillPay_Payee" FromRole="Payee" ToRole="BillPay" />
+  </EntityType>
+  <Association Name="FK_BillPay_Payee">
+    <End Type="Training_20Feb_MumbaiModel.Payee" Role="Payee" Multiplicity="1" />
+    <End Type="Training_20Feb_MumbaiModel.BillPay" Role="BillPay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payee">
+        <PropertyRef Name="PayeeID" />
+      </Principal>
+      <Dependent Role="BillPay">
+        <PropertyRef Name="PayeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Check_174797_Project">
+    <Key>
+      <PropertyRef Name="Check_ID" />
+    </Key>
+    <Property Name="Check_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Account_no" Type="Int64" />
+    <Property Name="phoneno" Type="Int64" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Account_Master_174797_Project" Relationship="Training_20Feb_MumbaiModel.FK__Check_174__Accou__01EAB64E" FromRole="Check_174797_Project" ToRole="Account_Master_174797_Project" />
+  </EntityType>
+  <Association Name="FK__Check_174__Accou__01EAB64E">
+    <End Type="Training_20Feb_MumbaiModel.Account_Master_174797_Project" Role="Account_Master_174797_Project" Multiplicity="0..1" />
+    <End Type="Training_20Feb_MumbaiModel.Check_174797_Project" Role="Check_174797_Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account_Master_174797_Project">
+        <PropertyRef Name="Account_No" />
+      </Principal>
+      <Dependent Role="Check_174797_Project">
+        <PropertyRef Name="Account_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

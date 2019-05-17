@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Home" class="navbar-brand">  <img src="~/Images/logo_bank.png" alt="Company logo" width="120" height="60" /></a>
+                @Html.ActionLink("Delta Bank", "Index", "Registration", new { area = "" }, new { @class = "navbar-brand" });
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "Index", "Registration")</li>
+                    <li>@Html.ActionLink("Apply Loan", "Loan", "Loans")</li>
+                    <li>@Html.ActionLink("Add payee Details", "Create", "Payees")</li>
+                    <li>@Html.ActionLink("Make Transaction", "Create", "MakeTransactions")</li>
+                    <li>@Html.ActionLink("Apply Check Book", "Create", "CheckBook")</li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Customer care", "Contact", "Home")</li>
+                <li align:Right>@Html.ActionLink("Logout", "LogOut", "Registration")</li>
+            </ul>
+            <div class="navbar-collapse collapse">
+
+            </div>
+        </div>
+        </div>
+  
+    <img src="~/Images/Directions.png" alt="Company logo" width="1200" height="200" />
+    @*<a href="~/BillPays/Create">Make Bills</a><br /><br />
+    
+    <a href="~/Transactions/Index">Transaction List</a><br /><br />
+    <a href="~/Loans/Status">Loans Status</a><br /><br />*@
+    @*<a href="~/Registration/ForgotPassword">Change Password</a>*@
+    <table align="center">
+        <tr>
+            <td colspan="2" align="center">
+                <a href="@Url.Action("Create","BillPays")" title="Edit">
+                    <img src="~/Images/Billpay.jpg" height="60px" , width="60px" />
+                </a>
+                @Html.ActionLink("Make Bills", "Create", "BillPays")
+            </td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+
+        <tr>
+            <td colspan="2" align="center">
+                <a href="@Url.Action("Index","Transactions")" title="Edit">
+                    <img src="~/Images/transactionicon.png" height="60px" , width="60px" />
+                </a>
+                @Html.ActionLink("Transaction List", "Index", "Transactions")
+            </td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+            <td colspan="2" align="center">
+                <a href="@Url.Action("Status","Loans")" title="Edit">
+                    <img src="~/Images/Loansicon.png" height="60px" , width="60px" />
+                </a>
+                @Html.ActionLink("Loans Status", "Status", "Loans")
+            </td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+            <td colspan="2" align="center">
+                <a href="@Url.Action("ForgotPassword","Registration")" title="Edit">
+                    <img src="~/Images/changepassword.jpg" height="60px" , width="60px" />
+                </a>
+                @Html.ActionLink("Change Password", "ForgotPassword", "Registration")
+            </td>
+        </tr>
+    </table>
+
+</body>
+<body id="BODYREGISTER" style="background-image: url('../../Images/homebackground.jpg');
+background-repeat: no-repeat; background-size: cover; background-color: deepskyblue; margin-right:  auto">
+</body>
